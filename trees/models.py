@@ -9,3 +9,6 @@ class Node(models.Model):
         related_name='children', 
         on_delete=models.CASCADE
     )
+    
+    def __str__(self) -> str:
+        return f'{self.attribute_name}(ID {self.id})'
