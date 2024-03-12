@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage My Tree</title>
+</head>
+<body>
+    <h1>Tree Structure</h1>
+    <!-- Display the tree structure here -->
+    <!-- Add form to create a new node -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Node</button>
+    </form>
+</body>
+</html>

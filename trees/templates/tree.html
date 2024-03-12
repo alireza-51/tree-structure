@@ -1,0 +1,30 @@
+{% load mptt_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage My Tree</title>
+</head>
+<body>
+
+<h1>Tree Structure</h1>
+
+<ul>
+    {% recursetree nodes %}
+        <li>
+            <a href="{% url 'edit_node' node.id %}">{{ node.attribute_name }}(ID {{ node.id }})</a>
+            <a style="margin-left: 20px; color:red" href="{% url 'delete_node' node.id %}">delete</a>
+            {% if not node.is_leaf_node %}
+                <ul style="margin-left: 20px;">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+<a href="{% url 'add_node' %}">Add Node</a>
+
+</body>
+</html>

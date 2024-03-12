@@ -1,0 +1,10 @@
+<ul>
+    {% for node in nodes %}
+        <li>{{ node.attribute_name }}</li>
+        {% if node.children.exists %}
+            {% with node.children.all as node %}
+                {% include "show_nodes.html" %}
+            {% endwith %}    
+        {% endif %}
+    {% endfor %}
+</ul>
