@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Apps
     'trees.apps.TreesConfig',
+
+    # Third-party apps
+    'mptt',
     
     # Default apps
     'django.contrib.admin',

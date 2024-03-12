@@ -1,8 +1,9 @@
 from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
 
-class Node(models.Model):
+class Node(MPTTModel):
     attribute_name = models.CharField(max_length=64)
-    parent = models.ForeignKey(
+    parent = TreeForeignKey(
         'self', 
         null=True, 
         blank=True, 
